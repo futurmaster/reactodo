@@ -1,7 +1,9 @@
 {
   "name": "react-todo",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "author": "Marton Szomolanyi <szomolanyi.marton@gmail.com>",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",

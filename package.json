@@ -4,6 +4,7 @@
   "private": false,
   "license": "MIT",
   "author": "Marton Szomolanyi <szomolanyi.marton@gmail.com>",
+  "homepage": "https://futurmaster.github.io/reactodo",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -50,7 +51,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "eslint-config-standard": "^11.0.0",
@@ -58,6 +61,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
+    "gh-pages": "^1.1.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1"
   },

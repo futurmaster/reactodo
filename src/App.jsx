@@ -14,6 +14,7 @@ class App extends Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.saveTask = this.saveTask.bind(this)
     this.editTask = this.editTask.bind(this)
+    this.controlTask = this.controlTask.bind(this)
   }
 
   handleInputChange (e) {
@@ -71,22 +72,37 @@ class App extends Component {
     }
   }
 
-  editTask (id) {
+  controlTask (id, state) {
     this.setState((prevState) => {
+      switch (state) {
+        case 'remove':
+          prevState.taskList = _.remove(prevState.taskList, (t) => { return t.id !== id })
+          break
+        default: 
+          _.update(prevState, 'taskList[' + _.findIndex(prevState.taskList, { id: id }) + '].isDone', (v) => { return !v })
+      }
 
       return {
+        taskList: prevState.taskList
+      }
+    })
+  }
+
+  editTask (id) {
+    this.setState((prevState) => {
+      return {
         edit: id,
-        taskText: _.find(prevState.taskList, { id: id })
+        taskText: _.find(prevState.taskList, { id: id }).text
       }
     })
   }
 
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <div className="row pt-3 pb-2" id="App-header">
           <div className="col-12 text-center text-light">
-            <h1 className="fa fa-clipboard-list"></h1>
+            <h1 className="fa fa-clipboard-list"> </h1>
             <h5>ReacTodo</h5>
           </div>
         </div>
@@ -104,7 +120,7 @@ class App extends Component {
         </div>
         <div className="row mt-5">
           <div className="col-sm-12 offset-md-2 col-md-8 offset-lg-4 col-lg-4">
-            {this.state.taskList.length ? <TodoList data={this.state.taskList} updateTask={this.editTask}/> : <strong>You don't add any tasks yet.</strong>}
+            {this.state.taskList.length ? <TodoList data={this.state.taskList} updateTask={this.editTask} controlTask={this.controlTask}/> : <strong>You don't add any tasks yet.</strong>}
           </div>
         </div>
       </div>

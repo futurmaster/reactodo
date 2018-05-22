@@ -8,5 +8,5 @@ This is a basic todo web app created with React and Bootstrap 4 [Demo](https://f
 - remove unnecessary
 
 # How to use the demo?
-You can add a new task simply using the text input on the top. To update on of the existing tasks you can use the edit button or just use the delete option to remove one.
-If you're done with one of your task you can mark as done with a simple duple click on it. (Use the same method to mark the done tasks as undone.)
+You can add a new task simply using the text input on the top. To update one of the existing tasks you can use the edit button or just use the delete option to remove one.
+If you're done with one of your tasks you can mark it as done with a simple duple click on it. (Use the same method to mark done tasks as undone.)
